@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+
+:root {
+  --tomato: hsl(4, 100%, 67%);
+  --dark-slate-grey: hsl(234, 29%, 20%);
+  --charcoal-grey: hsl(235, 18%, 26%);
+  --grey: hsl(231, 7%, 60%);
+  --white: hsl(0, 0%, 100%);
+  --Pale-Navy: #36384D;
+  --error-color: #FF6155;
+  --font-family: 'Roboto', 'Epilogue', sans-serif;
+  --weight-basic: 400;
+  --weight-bold: 700;
+}
+
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* Typography */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--dark-slate-grey);
+  background: var(--Pale-Navy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bold {
+  font-weight: var(--weight-bold);
+}
+
+/* Form */
+
+.form-container {
+  display: grid;
+  background-color: var(--white);
+}
+.form-body {
+  margin: 4rem 2.4rem;
+}
+.description {
+  max-width: 32.7rem;
+  margin: 0 0 4rem;
+}
+.heading {
+  font-size: 4rem;
+  font-weight: var(--weight-bold);
+}
+.description p {
+  margin: 2.4rem 0;
+}
+.list {
+  /*display: grid;
+  grid-template-columns: auto auto;*/
+}
+.list-item {
+  margin: 1rem 0;
+  list-style: none;
+  /*list-style-image: url("../images/icon-list.svg");*/
+}
+.list-item::before {
+  content: url("../images/icon-list.svg");
+  margin-right: 1.6rem;
+}
+.label {
+  display: flex;
+  justify-content: space-between;
+}
+.form__label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: var(--weight-bold);
+}
+.error-message {
+  color: var(--error-color);
+  visibility: hidden;
+}
+.error-message.error {
+  visibility: visible;
+}
+.form__input {
+  display: block;
+  margin: 0.8rem 0 2.4rem;
+  width: 100%;
+  padding: 1.6rem 2.4rem;
+  border-radius: 8px;
+  border: 1px solid var(--grey);
+  outline: none;
+}
+.form__input.error {
+  border: 1px solid var(--error-color);
+  color: var(--error-color);
+  background-color: rgba(255, 97, 85, 0.15);
+}
+.form__input::placeholder {
+  color: var(--dark-slate-grey);
+  opacity: 0.5;
+}
+.form__input:focus {
+  border: 1px solid var(--dark-slate-grey);
+}
+.form__btn {
+  display: block;
+  width: 100%;
+  background-color: var(--dark-slate-grey);
+  color: var(--white);
+  padding: 1.7rem 4.6rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.form__btn:hover {
+  background-color: var(--tomato);
+}
+
+@media screen and (min-width: 950px) {
+  .form-container {
+    /*max-width: 92.8rem;*/
+    grid-template-columns: 54% 46%;
+    align-items: center;
+    border-radius: 36px;
+  }
+  .form-body {
+    grid-area: 1 / 1 / 2 / 2;
+    margin: 9rem 6.4rem;
+  }
+  .img-container {
+    grid-column: 1 / 2 / 2 / 3;
+    margin: 2.4rem 2.4rem 2.4rem 0;
+  }
+  .heading {
+    font-size: 5.6rem;
+  }
+  .description {
+    max-width: 37.6rem;
+  }
+}
+
+/* Validation */
+
+.error-message {
+
+}
+
+
+/* Success message */
+.sucmes {
+  display: flex;
+  align-items: end;
+  background-color: var(--white);
+  padding: 0 2.4rem;
+}
+.fullHeight {
+  height: 100vh;
+}
+.confirmation {
+  margin: 2.4rem 0 20rem 0;
+}
+.sucmes__heading {
+  margin-top: 4rem;
+  line-height: 100%;
+}
+.sucmes__btn {
+  margin-bottom: 6rem;
+}
+.max-width {
+  max-width: 32.7rem;
+}
+
+@media screen and (min-width: 950px) {
+  .sucmes {
+    /*max-width: 50.4rem;*/
+    border-radius: 36px;
+    padding: 4.8rem 6.4rem 6.4rem;
+  }
+  .max-width {
+    max-width: 37.6rem;
+  }
+  .sucmes__btn {
+    margin-bottom: 0rem;
+    width: 37.6rem;
+  }
+  .confirmation {
+    margin: 2.4rem 0 4rem;
+  }
+  .fullHeight {
+    height: auto;
+  }
+}
